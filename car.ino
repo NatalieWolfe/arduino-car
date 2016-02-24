@@ -1,0 +1,46 @@
+
+#include "./src/motor.hpp"
+
+enum Pin {
+    RX_PIN,
+    TX_PIN,
+
+    MOTOR_REAR_LEFT1,
+    MOTOR_REAR_LEFT_POWER,
+    MOTOR_REAR_LEFT2,
+
+    MOTOR_REAR_RIGHT_POWER,
+    MOTOR_REAR_RIGHT2,
+    MOTOR_REAR_RIGHT1,
+
+    MOTOR_FRONT_LEFT2,
+    MOTOR_FRONT_LEFT1,
+    MOTOR_FRONT_LEFT_POWER,
+
+    MOTOR_FRONT_RIGHT_POWER,
+    MOTOR_FRONT_RIGHT2,
+    MOTOR_FRONT_RIGHT1
+};
+
+enum Position {
+    FRONT = 0;
+    REAR = 1;
+}
+
+enum Side {
+    LEFT = 0;
+    RIGHT = 1;
+}
+
+Motor motors[2][2];
+
+void setup(){
+    motors[FRONT][LEFT].attach(MOTOR_FRONT_LEFT_POWER, MOTOR_FRONT_LEFT1, MOTOR_FRONT_LEFT2);
+    motors[FRONT][RIGHT].attach(MOTOR_FRONT_RIGHT_POWER, MOTOR_FRONT_RIGHT1, MOTOR_FRONT_RIGHT2);
+    motors[REAR][LEFT].attach(MOTOR_REAR_LEFT_POWER, MOTOR_REAR_LEFT1, MOTOR_REAR_LEFT2);
+    motors[REAR][RIGHT].attach(MOTOR_REAR_RIGHT_POWER, MOTOR_REAR_RIGHT1, MOTOR_REAR_RIGHT2);
+}
+
+void loop(){
+
+}
